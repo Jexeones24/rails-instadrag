@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_id
-    # byebug
     decoded_token.first['id']
   end
 

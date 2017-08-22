@@ -6,8 +6,8 @@ class Api::V1::PicturesController < ApplicationController
   end
 
   def create
-    # byebug
     picture = Picture.create(pic_params)
+    current_user.pictures << picture
     render json: picture
   end
 
