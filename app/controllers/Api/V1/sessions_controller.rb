@@ -23,4 +23,5 @@ class Api::V1::SessionsController < ApplicationController
       }, status: 404
     end
   end
+
 end
