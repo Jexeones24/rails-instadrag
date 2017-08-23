@@ -6,8 +6,9 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    # byebug
     user = User.create(user_params)
+    # user.password = params[:user][:password]
+    # user.save
     render json: user
   end
 
@@ -34,7 +35,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password_digest)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end
