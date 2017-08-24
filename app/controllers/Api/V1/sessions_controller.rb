@@ -15,7 +15,7 @@ class Api::V1::SessionsController < ApplicationController
       render json: {
         id: user.id,
         username: user.username,
-        jwt: JWT.encode({id: user.id}, "instadrag", false)
+        jwt: JWT.encode({id: user.id}, "instadrag")
       }
     else
       render json: {

@@ -9,7 +9,11 @@ class Api::V1::UsersController < ApplicationController
     user = User.create(user_params)
     # user.password = params[:user][:password]
     # user.save
-    render json: user
+    render json: {
+      id: user.id,
+      username: user.username,
+      jwt: JWT.encode({id: user.id}, "instadrag", false)
+    }
   end
 
   def show

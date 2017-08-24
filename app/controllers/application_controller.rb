@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   def decoded_token
     if token
       begin
-        JWT.decode(token, "instadrag", false)
+        JWT.decode(token.split(" ")[1], "instadrag")
       rescue JWT::DecodeError
         return [{}]
       end
